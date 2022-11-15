@@ -1,5 +1,4 @@
-import { Component } from 'react';
-import React = require('react');
+import React from "react";
 import { User } from '../../App';
 import { Card } from '../card/card.component';
 

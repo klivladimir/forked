@@ -1,22 +1,25 @@
-import * as React from 'react';
+import React from "react";
 import { ajax } from 'rxjs/ajax';
 import { concatAll, map, filter, toArray } from 'rxjs';
-import { CardList } from '../../components/card-list/card-list.component';
+import { CardList } from '../card-list/card-list.component';
 import '../../style.scss';
 import { SearchInput } from '../search-input/search-input.component';
+import {User} from "../../App";
 
 export const Cats = () => {
-  const [users, setUsers] = React.useState([]);
+  const [users, setUsers] = React.useState<User[]>([]);
 
   const [nameSearch, setNameSearch] = React.useState('');
 
-  const searchUserHandler = (event) => {
+  const searchUserHandler = (event: any) => {
     setNameSearch(event.target.value.toLocaleLowerCase());
   };
   React.useEffect(() => {
+
     ajax
       .getJSON('https://jsonplaceholder.typicode.com/users')
       .pipe(
+          // @ts-ignore
       concatAll(),
       filter((user) =>
         user.name.toLocaleLowerCase().includes(nameSearch.toLocaleLowerCase())
@@ -26,7 +29,7 @@ export const Cats = () => {
         image: `https://robohash.org/${user.id}?set=set4`,
       })),
       toArray()
-      ).subscribe(setUsers);
+      ).subscribe((res: User[]) => setUsers(res));
   }, [nameSearch]);
 
   return (

@@ -1,19 +1,15 @@
 import * as React from 'react';
 import { Home } from './routes/home.route';
 import { Routes, Route } from 'react-router-dom';
-import { Cats } from './components/cats/cats.component';
-import { SignIn } from './components/signin/signIn.component';
+import {SignIn} from "./components/signin/signIn.component";
+import {Cats} from "./components/cats/cats.component";
+
 
 export interface User {
   name: string;
   id: number;
   create: Date;
   image: string;
-}
-
-interface AppState {
-  users: User[];
-  nameSearch: string;
 }
 
 export const App = () => {

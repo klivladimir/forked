@@ -1,6 +1,4 @@
-import React = require('react');
 import { Fragment } from 'react';
-import '../style.scss';
 import './home.scss';
 import { Link, Outlet } from 'react-router-dom';
 
