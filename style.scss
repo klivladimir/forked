@@ -1,0 +1,39 @@
+h1,
+p {
+  font-family: Lato;
+}
+:root {
+  --color: #32c348;
+  --back: indigo;
+}
+
+body {
+  background-color: var(--back);
+  color: var(--color);
+  font-family: monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+}
+
+input {
+  background-color: var(--back);
+  color: var(--color);
+  border: 1px solid var(--color);
+  outline: none;
+  align-self: center;
+
+  @media screen and (max-width: 500px) {
+    align-self: stretch;
+  }
+}
+
+p {
+  font-family: inherit;
+}
